@@ -37,17 +37,15 @@ define(
         addBook: function(e) {
             e.preventDefault();
 
-            var form_data = {};
+            var form_data = {
+                coverImage: $('#coverImage')[0].files[0],
+                title: $('#title').val(),
+                author: $('#author').val(),
+                releaseDate: $('#releaseDate').val(),
+                keywords: $('#keywords').val()
+            };
 
-            $('#addBook div')
-                .children('input')
-                .each(function(i, el) {
-                    if ($(el).val() != '') {
-                        form_data[el.id] = $(el).val();
-                    }
-                });
-
-            this.collection.create(form_data);
+            this.collection.create(form_data, { wait: true});
         }
     });
 

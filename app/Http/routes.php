@@ -41,8 +41,19 @@ $app->get('books/{id}', function($id)
 
 $app->post('books', function() 
 {
-
+    $target_path = 'upload/images/';
     $book = new Book;
+    // TODO : move the upload file to images folder
+    $file_name = md5(rand());
+
+    if (Request::hasFile('coverImage')) {
+        $upload_file = Request::file('coverImage');
+        $ext_file_name = $upload_file->getClientOriginalExtension();
+        $file_name = "$file_name.$ext_file_name" ;
+
+        $upload_file->move($target_path,$file_name);
+    }
+    $book->coverImage = $target_path.$file_name;
     $book->title = Request::input('title');
     $book->author = Request::input('author');
     $book->releaseDate = Request::input('releaseDate');

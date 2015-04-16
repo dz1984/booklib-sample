@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <!--<meta name="csrf-token" content="{{ csrf_token() }}" />-->
         <title>Book Library</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
