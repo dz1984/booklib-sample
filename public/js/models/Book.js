@@ -33,7 +33,7 @@ define(
                     opts.contentType = false;
                     break;
                 default:
-                    opts.type = 'GET';
+                    opts.type = method;
             }
             return $.ajax(opts);
         }
