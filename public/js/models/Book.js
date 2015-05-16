@@ -1,5 +1,5 @@
 define(
-    [   
+    [
         'lib/backbone',
     ],function(Backbone) {
     var Book = Backbone.Model.extend({
@@ -15,12 +15,10 @@ define(
             var opts = {
                 url: this.url(),
                 success: function(data) {
-                    if (options.success) 
+                    if (options.success)
                         options.success(data);
                 }
-            }
-            console.log('entry sync method of the Book model');
-            console.log('Method', method);
+            };
 
             switch(method) {
                 case 'create':
@@ -34,7 +32,7 @@ define(
                     opts.processData = false;
                     opts.contentType = false;
                     break;
-                default: 
+                default:
                     opts.type = 'GET';
             }
             return $.ajax(opts);

@@ -1,5 +1,5 @@
 define(
-    [   
+    [
         'jquery',
         'lib/backbone',
         'collections/Library',
@@ -14,7 +14,7 @@ define(
 
         initialize: function(initialBooks) {
             this.collection = new Library(initialBooks);
-            this.collection.fetch({reset: true}); 
+            this.collection.fetch({reset: true});
             this.render();
 
             this.listenTo(this.collection, 'add', this.renderBook);
@@ -45,7 +45,7 @@ define(
                 keywords: $('#keywords').val()
             };
 
-            this.collection.create(form_data, { wait: true});
+            this.collection.create(form_data, { wait: true });
         }
     });
 
